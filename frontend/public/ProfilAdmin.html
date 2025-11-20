@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Admin</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1919e6",
+            "background-light": "#f1f5f9",
+            "background-dark": "#111121",
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="bg-background-light dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-display">
+
+  <!-- TOP BAR -->
+  <header class="flex items-center justify-between bg-white dark:bg-slate-800 p-4 shadow-sm sticky top-0 z-20">
+    <div id="btnBack" class="cursor-pointer flex items-center">
+      <span class="material-symbols-outlined text-3xl">arrow_back</span>
+    </div>
+    <h2 class="font-bold text-lg">Profil Admin</h2>
+    <div class="w-8"></div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="p-5 space-y-6">
+
+    <!-- CARD FOTO + DATA -->
+    <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow">
+      <div class="flex flex-col items-center text-center gap-3">
+        <div class="h-24 w-24 rounded-full bg-cover bg-center ring-4 ring-white/50 dark:ring-slate-900/50"
+          id="profilePhoto"
+          style="background-image:url('https://i.pravatar.cc/300');">
+        </div>
+
+        <h3 id="profileName" class="text-xl font-bold">Admin</h3>
+        <p id="profileEmail" class="text-sm text-slate-500 dark:text-slate-400">email@example.com</p>
+
+        <span class="text-xs px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400 rounded-md">
+          Admin
+        </span>
+      </div>
+    </div>
+
+    <!-- FORM EDIT -->
+    <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow">
+      <form id="formProfile" class="space-y-4">
+
+        <div>
+          <label class="text-sm font-medium">Nama Lengkap</label>
+          <input id="fullName" type="text"
+            class="w-full mt-1 rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700" />
+        </div>
+
+        <div>
+          <label class="text-sm font-medium">Email</label>
+          <input id="email" type="email"
+            class="w-full mt-1 rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700" />
+        </div>
+
+        <div>
+          <label class="text-sm font-medium">Password Baru</label>
+          <input id="newPassword" type="password" placeholder="Isi jika ingin mengganti"
+            class="w-full mt-1 rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700" />
+        </div>
+
+        <div>
+          <label class="text-sm font-medium">Konfirmasi Password</label>
+          <input id="confirmPassword" type="password"
+            class="w-full mt-1 rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700" />
+        </div>
+
+        <button type="submit"
+          class="w-full bg-primary text-white py-2.5 rounded-lg font-semibold shadow hover:bg-primary/90">
+          Simpan Perubahan
+        </button>
+
+        <button type="button" id="btnDelete"
+          class="w-full bg-red-500 text-white py-2.5 rounded-lg font-semibold shadow hover:bg-red-600">
+          Hapus Akun
+        </button>
+      </form>
+    </div>
+
+    <!-- INFO SINGKAT -->
+    <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow">
+      <h3 class="font-semibold mb-3">Info Singkat</h3>
+
+      <div class="flex justify-between text-sm">
+        <span class="text-slate-500">Admin ID</span>
+        <span id="adminId">ADM-001</span>
+      </div>
+
+      <div class="flex justify-between text-sm mt-2">
+        <span class="text-slate-500">Role</span>
+        <span>Admin</span>
+      </div>
+
+      <div class="flex justify-between text-sm mt-2">
+        <span class="text-slate-500">Terakhir aktif</span>
+        <span id="lastActive">Baru saja</span>
+      </div>
+    </div>
+
+    <!-- AKSI CEPAT -->
+    <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow">
+      <h3 class="font-semibold mb-3">Aksi Cepat</h3>
+
+      <div class="space-y-3">
+
+        <button id="btnOpenPasswordModal"
+          class="flex items-center w-full gap-3 bg-slate-100 dark:bg-slate-700 px-4 py-2 rounded-lg">
+          <span class="material-symbols-outlined">lock</span> Ganti Password
+        </button>
+
+        <button onclick="window.location.href='KelolaNotifikasi.html'"
+          class="flex items-center w-full gap-3 bg-slate-100 dark:bg-slate-700 px-4 py-2 rounded-lg">
+          <span class="material-symbols-outlined">notifications</span> Kelola Notifikasi
+        </button>
+
+        <button onclick="window.location.href='LogAktivitas.html'"
+          class="flex items-center w-full gap-3 bg-slate-100 dark:bg-slate-700 px-4 py-2 rounded-lg">
+          <span class="material-symbols-outlined">history</span> Log Aktivitas
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER MENU -->
+  <nav class="fixed bottom-0 w-full bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700">
+    <div class="flex justify-around py-3">
+      <a href="admin_dashboard.html" class="flex flex-col items-center text-slate-500">
+        <span class="material-symbols-outlined text-2xl">dashboard</span>
+        <span class="text-xs">Dashboard</span>
+      </a>
+
+      <a href="ProfilAdmin.html" class="flex flex-col items-center text-primary">
+        <span class="material-symbols-outlined text-2xl">account_circle</span>
+        <span class="text-xs font-bold">Profile</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ========================================================= -->
+  <!-- SCRIPT CRUD PROFIL ADMIN -->
+  <!-- ========================================================= -->
+  <script>
+    const defaultProfile = {
+      id: "ADM-001",
+      name: "Alex Doe",
+      email: "alex.doe@example.com",
+      password: "123456",
+      photo: "https://i.pravatar.cc/300",
+      lastActive: "1 menit lalu",
+    };
+
+    let profile = JSON.parse(localStorage.getItem("adminProfile")) || defaultProfile;
+
+    // SHOW DATA
+    document.getElementById("fullName").value = profile.name;
+    document.getElementById("email").value = profile.email;
+    document.getElementById("profileName").textContent = profile.name;
+    document.getElementById("profileEmail").textContent = profile.email;
+    document.getElementById("profilePhoto").style.backgroundImage = `url('${profile.photo}')`;
+    document.getElementById("adminId").textContent = profile.id;
+    document.getElementById("lastActive").textContent = profile.lastActive;
+
+    // SIMPAN PERUBAHAN
+    document.getElementById("formProfile").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = fullName.value.trim();
+      const email = email.value.trim();
+      const pass = newPassword.value.trim();
+      const confirm = confirmPassword.value.trim();
+
+      if (!name || !email) return alert("Nama & Email tidak boleh kosong");
+
+      if (pass || confirm) {
+        if (pass !== confirm) return alert("Password tidak sama!");
+        profile.password = pass;
+      }
+
+      profile.name = name;
+      profile.email = email;
+
+      localStorage.setItem("adminProfile", JSON.stringify(profile));
+
+      alert("Profil berhasil diperbarui!");
+      location.reload();
+    });
+
+    // DELETE ACCOUNT
+    document.getElementById("btnDelete").addEventListener("click", () => {
+      if (confirm("Yakin ingin menghapus akun?")) {
+        localStorage.removeItem("adminProfile");
+        alert("Akun berhasil dihapus");
+        window.location.href = "login.html";
+      }
+    });
+
+    // BACK
+    document.getElementById("btnBack").onclick = () => {
+      window.location.href = "admin_dashboard.html";
+    };
+  </script>
+</body>
+
+</html>
